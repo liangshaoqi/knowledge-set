@@ -14,6 +14,8 @@ module.exports = override(
   }),
   // 别名配置(减少写相对路径的时间)
   addWebpackAlias({
-    '@view': path.resolve(__dirname, 'src/view')
+    '@': path.resolve(__dirname, 'src/'),
+    '@view': path.resolve(__dirname, 'src/view'),
+    '@routers': path.resolve(__dirname, 'src/routers'),
   })
 )
