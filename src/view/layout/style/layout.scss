@@ -1,0 +1,13 @@
+.layout-content{
+  display: flex;
+  min-height: 100vh;
+  .menu-box{
+    width: 200px;
+  }
+  .layout-right{
+    flex: 1;
+    header{
+      height: 64px;
+    }
+  }
+}

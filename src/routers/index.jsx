@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch, BrowserRouter } from 'react-router-dom'
+import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import Layout from '@view/layout'
 import Login from '@view/login'
 export default class Crouter extends Component {
