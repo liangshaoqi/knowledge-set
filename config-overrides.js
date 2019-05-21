@@ -17,5 +17,6 @@ module.exports = override(
     '@': path.resolve(__dirname, 'src/'),
     '@view': path.resolve(__dirname, 'src/view'),
     '@routers': path.resolve(__dirname, 'src/routers'),
+    '@utils': path.resolve(__dirname, 'src/utils'),
   })
 )
