@@ -15,9 +15,7 @@ class Layouts extends Component {
           <div className='menu-content'>菜单</div>
         </nav>
         <div className='layout-right'>
-          <header className='header-box'>
-            <Header></Header>
-          </header>
+          <Header></Header>
           <div className='content-box'>内容</div>
           <footer className='footer-box'>
             <Footer></Footer>
