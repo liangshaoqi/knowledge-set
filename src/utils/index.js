@@ -3,7 +3,7 @@
 export function debounce(fn, wait = 1000) {
   // 缓存一个定时器id
   let timer = 0
-  console.log('this:'+this)
+  console.log('this:' + this)
   // 这里返回的函数是每次用户实际调用的防抖函数
   // 如果定时器设置了,就清空上一次的的定时器
   // 开始一个新的定时器,延迟执行用户传入的方法
@@ -196,7 +196,16 @@ export function browserType() {
   var bIsAndroid = sUserAgent.match(/android/i) == 'android'
   var bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce'
   var bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile'
-  if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+  if (
+    bIsIpad ||
+    bIsIphoneOs ||
+    bIsMidp ||
+    bIsUc7 ||
+    bIsUc ||
+    bIsAndroid ||
+    bIsCE ||
+    bIsWM
+  ) {
     return 'phone'
   }
   return 'pc'
