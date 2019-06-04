@@ -1,3 +1,4 @@
+/* eslint-disable */
 // 防抖
 export function debounce(fn, wait = 1000) {
   // 缓存一个定时器id
@@ -25,7 +26,6 @@ export function throttle(fn, delay) {
     }
   }
 }
-/* eslint-disable */
 export function session_set(name, data) {
   sessionStorage.setItem(name, JSON.stringify(data))
 }
