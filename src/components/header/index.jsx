@@ -1,15 +1,28 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Icon } from 'antd'
 import { browserType } from '@utils'
 class HeaderBox extends Component {
   // 菜单点击事件
   menuOpen = () => {
     console.log()
-    debugger
+  }
+  componentDidMount() {
+    Promise.race([this.wake(3000), this.wake(2000), this.wake(1000)]).then(result => {
+      console.log(result)
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+  wake = (time) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(_ => {
+        resolve(`${time / 1000}秒后醒来`)
+      }, time)
+    })
   }
   render() {
     return (
-      <Fragment>
+      <header className='header-box'>
         <div className="header-content">头部</div>
         {/* 左上角菜单 */}
         <nav
@@ -19,7 +32,7 @@ class HeaderBox extends Component {
         >
           <Icon type="menu" onClick={icon => this.menuOpen(icon)} />
         </nav>
-      </Fragment>
+      </header>
     )
   }
 }
