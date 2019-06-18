@@ -1,5 +1,6 @@
 // 防抖
 export function debounce(fn, wait = 1000) {
+  console.log(fn)
   // 缓存一个定时器id
   let timer = 0
   console.log('this:'+this)
@@ -15,13 +16,28 @@ export function debounce(fn, wait = 1000) {
   }
 }
 // 节流
-export function throttle(fn, delay) {
-  let prev = Date.now()
-  return function() {
-    let now = Date.now()
-    if (now - prev > delay) {
-      fn.apply(this, arguments)
-      prev = Date.now
+let throttle_last = 0
+let throttle_timer = null
+export function throttle(fn, interval = 200) {
+  console.log('周期时间:', interval)
+  return function () {
+    console.log('进入')
+    var th = this;
+    var args = arguments;
+    var now = +new Date();
+    // console.log('throttle_last:', throttle_last)
+    // console.log('now-throttle_last:', now - throttle_last)
+    // console.log('interval:', interval)
+    if (throttle_last && (now - throttle_last) < interval) {
+      console.log('节流')
+      clearTimeout(throttle_timer);
+      throttle_timer = setTimeout(function () {
+        throttle_last = now;
+        fn.apply(th, args);
+      }, interval);
+    } else {
+      throttle_last = now;
+      fn.apply(th, args);
     }
   }
 }
