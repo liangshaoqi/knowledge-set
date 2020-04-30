@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>This shows how to get elements inside included svg images from the surrounding html.</title>
+  </head>
+  <style>
+    *,*::before,*::after {
+      box-sizing: inherit;
+      color: inherit;
+    }
+    .test {
+      color: red;
+    }
+  </style>
+	<body>
+    <div class="test">
+      <svg width="64px" height="51px" viewBox="0 0 64 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+        <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
+        <title>Weather-cloud-rain</title>
+        <desc>Created with Sketch.</desc>
+        <defs></defs>
+        <g id="Page-1" stroke="none" stroke-width="1" fill="red" fill-rule="evenodd" sketch:type="MSPage">
+            <g id="Weather-cloud-rain" sketch:type="MSLayerGroup" transform="translate(1.000000, 2.000000)" stroke-width="2" stroke="#6B6C6E">
+                <g id="Group" sketch:type="MSShapeGroup">
+                    <path d="M14.7,8.8 C17.6,3.5 23.3,-0.1 29.8,-0.1 C39.3,-0.1 47,7.5 47,17 C47,18.3 46.8,19.6 46.6,20.8" id="Shape"></path>
+                    <path d="M47.4,14.4 C48.5,14 49.7,13.9 50.9,13.9 C57,13.9 62,18.8 62,24.9 C62,31 57,35.9 50.9,35.9 L13.6,35.9 C6.1,35.9 0,29.8 0,22.4 C0,14.9 6.1,8.9 13.6,8.9 C17.1,8.9 20.3,10.2 22.7,12.3" id="Shape"></path>
+                </g>
+                <path d="M17,40 L14,46" id="Shape" sketch:type="MSShapeGroup"></path>
+                <path d="M25,40 L21,48" id="Shape" sketch:type="MSShapeGroup"></path>
+                <path d="M39,40 L35,48" id="Shape" sketch:type="MSShapeGroup"></path>
+                <path d="M47,40 L44,46" id="Shape" sketch:type="MSShapeGroup"></path>
+                <path d="M32,40 L29,46" id="Shape" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </svg>
+      <object class="emb" data="./1.svg" width="100" height="100" type="image/svg+xml"></object>
+    </div>
+		
+		<embed style="color: red;" class="emb" src="./1.svg" width="100" height="100" type="image/svg+xml" />
+		<iframe class="emb" src="./1.svg" width="100" height="100" style="border:0;color: red;" ></iframe>
+		<script>//<![CDATA[
+		
+		// wait until all the resources are loaded
+		window.addEventListener("load", findSVGElements, false);
+		
+		// fetches the document for the given embedding_element
+		function getSubDocument(embedding_element)
+		{
+      for( var i in embedding_element){
+      }
+      console.log(embedding_element["contentDocument"])
+      console.log(embedding_element.getSVGDocument())
+			if (embedding_element.contentDocument) 
+			{
+				return embedding_element.contentDocument;
+			} 
+			else 
+			{
+				var subdoc = null;
+				try {
+					subdoc = embedding_element.getSVGDocument();
+				} catch(e) {}
+				return subdoc;
+			}
+		}
+				
+		function findSVGElements()
+		{
+			var elms = document.querySelectorAll(".emb");
+			for (var i = 0; i < elms.length; i++)
+			{
+        console.log(elms[i].contentDocument)
+				var subdoc = getSubDocument(elms[i])
+				if (subdoc)
+					subdoc.getElementById("svgbar").setAttribute("fill", "lime");
+			}
+		}
+		//]]>
+		</script>
+	</body>
+<ml>

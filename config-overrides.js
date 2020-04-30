@@ -12,7 +12,7 @@ module.exports = override(
     javascriptEnabled: true,
     modifyVars: { '@primary-color': '#1DA57A' }
   }),
-  // 别名配置(减少写相对路径的时间)
+  // 别名配置
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src/'),
     '@view': path.resolve(__dirname, 'src/view'),
