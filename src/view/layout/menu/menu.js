@@ -4,7 +4,7 @@ import { Menu } from 'antd'
 const { SubMenu  } = Menu
 const { Item } = SubMenu
 export default function Menus() {
-  const [ menuList, setMenuList ] = useState(
+  const [ menuList ] = useState(
     [
       {
         name: '首页',
@@ -17,9 +17,6 @@ export default function Menus() {
       }
     ]
   )
-  let a = () => {
-    setMenuList([])
-  }
   return (
     <Menu
       mode="inline"
