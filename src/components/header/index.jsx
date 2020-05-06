@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Icon } from 'antd'
 import { browserType } from '@utils'
+import './style.scss'
 class HeaderBox extends Component {
   // 菜单点击事件
   menuOpen = () => {

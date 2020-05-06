@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import Header from '@components/header';
 // footer组件
 import Footer from '@components/footer';
+import Crumbs from '@/components/crumbs'
 import { Switch, Route } from 'react-router-dom';
 import { browserType } from '@utils';
-import routesConfig from '@routers/config' // 路由配置json
+import routesConfig from '@routes/config' // 路由配置json
 import './style/layout.scss';
 import ast from '../../practice/parse';
-import Menu from '@view/layout/menu/menu.jsx'
+import Menu from '@view/layout/menu/menu'
 
 
 class Layouts extends Component {
@@ -21,12 +22,11 @@ class Layouts extends Component {
       <section className="layout-content">
         {/* 左侧菜单 */}
         <nav className="menu-box">
-          <div className="menu-content">
-            <Menu></Menu>
-          </div>
+          <Menu></Menu>
         </nav>
         <div className="layout-right">
           <Header></Header>
+          <Crumbs></Crumbs>
           <div className="content-box">
             {
               <Switch>

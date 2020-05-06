@@ -1,38 +1,53 @@
-import React, { useState } from 'react'
-import { Menu } from 'antd'
-
-
-const { SubMenu  } = Menu
-const { Item } = SubMenu
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu } from 'antd';
+// import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import './menu.scss';
+const { Item } = Menu;
 export default function Menus() {
-  const [ menuList ] = useState(
-    [
-      {
-        name: '首页',
-        id: '1',
-        path: '/app/home'
-      },
-      {
-        name: '动画-爱心',
-        id: '/app/love'
-      }
-    ]
-  )
-
+  let [menuList] = useState([
+    {
+      name: '首页',
+      id: '1',
+      path: '/app/home',
+    },
+    {
+      name: '动画-爱心',
+      path: '/app/love',
+      id: '2',
+    },
+  ]);
+  let [collapsed] = useState(false)
+  // const toggleCollapsed = () => {
+  //   setCollapsed(!collapsed)
+  // }
   return (
-    <Menu
-      mode="inline"
-    >
-      {
-        menuList.map(item => {
-          return (
-            <SubMenu title={'菜单'}>
-              <Item>{item.name}</Item>
-            </SubMenu>
-          )
-        })
-      }
-      {/* <div>点击修改</div> */}
-    </Menu>
-  )
+    <>
+      <div className='logo-view'>
+        <div title='React'>React</div>
+        {/* <Button onClick={toggleCollapsed} type='primary'>
+          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
+        </Button> */}
+      </div>
+      <Menu
+        className="menu-view"
+        mode="inline"
+        defaultSelectedKeys="/app/home"
+        theme="dark"
+        inlineCollapsed={collapsed}
+      >
+        {
+          menuList.map((item) => {
+            return (
+              <Item key={item.path}>
+                <Link to={item.path}>
+                  <span>{item.name}</span>
+                </Link>
+              </Item>
+            )
+          })
+        }
+      </Menu>
+    </>
+  );
 }

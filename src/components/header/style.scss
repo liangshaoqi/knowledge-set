@@ -1,0 +1,19 @@
+header{
+  height: 64px;
+  display: flex;
+  background: #fff;
+  box-shadow: 0px 3px 6px 0px rgba(153, 153, 153, 0.11);
+  .header-content{
+    width: 100%;
+  }
+  .mobile-nav{
+    font-size: 22px;
+    padding: 0 5px;
+    &.isMobile{
+      display: block;
+    }
+    &.isPc{
+      display: none;
+    }
+  }
+}

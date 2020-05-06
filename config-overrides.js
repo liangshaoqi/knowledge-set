@@ -10,7 +10,7 @@ module.exports = override(
   // 主题颜色
   addLessLoader({
     javascriptEnabled: true,
-    modifyVars: { '@primary-color': '#1DA57A' }
+    // modifyVars: { '@primary-color': '#1DA57A' }
   }),
   // 别名配置
   addWebpackAlias({
