@@ -8,7 +8,7 @@ import { browserType } from '@utils';
 import routesConfig from '@routers/config' // 路由配置json
 import './style/layout.scss';
 import ast from '../../practice/parse';
-import Menu from '@view/layout/menu/menu'
+import Menu from '@view/layout/menu/menu.jsx'
 
 
 class Layouts extends Component {
