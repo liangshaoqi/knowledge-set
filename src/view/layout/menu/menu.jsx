@@ -1,33 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
-// import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+
+import routes from '@/routes/config'
+
 import './menu.scss';
-const { Item } = Menu;
+
+const { menus } = routes
+const { Item, SubMenu } = Menu;
 export default function Menus() {
-  let [menuList] = useState([
-    {
-      name: '首页',
-      id: '1',
-      path: '/app/home',
-    },
-    {
-      name: '动画-爱心',
-      path: '/app/love',
-      id: '2',
-    },
-  ]);
   let [collapsed] = useState(false)
-  // const toggleCollapsed = () => {
-  //   setCollapsed(!collapsed)
-  // }
+  useEffect(() => {
+    console.log(1111)
+  })
+  useEffect(() => {
+    console.log(2)
+  })
+  useEffect(() => {
+    console.log(3)
+  })
+  // 渲染菜单项
+  const renderMenuItem = (menus) => {
+    return menus.map(item => {
+      if (item.children) {
+        return (
+          <SubMenu key={item.route} title={item.title}>
+            {renderMenuItem(item.children)}
+          </SubMenu>
+        )
+      } else {
+        return (
+          <Item key={item.route}>
+            <Link to={item.route}>
+              <span>{item.title}</span>
+            </Link>
+          </Item>
+        )
+      }
+    })
+  }
   return (
     <>
       <div className='logo-view'>
         <div title='React'>React</div>
-        {/* <Button onClick={toggleCollapsed} type='primary'>
-          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
-        </Button> */}
       </div>
       <Menu
         className="menu-view"
@@ -36,17 +52,7 @@ export default function Menus() {
         theme="dark"
         inlineCollapsed={collapsed}
       >
-        {
-          menuList.map((item) => {
-            return (
-              <Item key={item.path}>
-                <Link to={item.path}>
-                  <span>{item.name}</span>
-                </Link>
-              </Item>
-            )
-          })
-        }
+        {renderMenuItem(menus)}
       </Menu>
     </>
   );

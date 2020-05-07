@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
 import './index.scss'
+/*eslint-disable*/
 export default function LoveHeater() {
   let list = []
   const operateList = () => {
@@ -55,6 +57,9 @@ export default function LoveHeater() {
     // }, 1000)
   }
   animateMove()
+  useEffect(() => {
+    console.log('useEffect')
+  })
   return (
     <div className='heart-view'>
       <div id='heart'>

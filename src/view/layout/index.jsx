@@ -1,23 +1,33 @@
 import React, { Component } from 'react';
-// 头部
-import Header from '@components/header';
-// footer组件
-import Footer from '@components/footer';
-import Crumbs from '@/components/crumbs'
 import { Switch, Route } from 'react-router-dom';
-import { browserType } from '@utils';
+
+import Header from '@components/header'; // 头部
+import Footer from '@components/footer'; // footer组件
+import Crumbs from '@/components/crumbs'
 import routesConfig from '@routes/config' // 路由配置json
-import './style/layout.scss';
-import ast from '../../practice/parse';
 import Menu from '@view/layout/menu/menu'
+
+import './style/layout.scss';
 
 
 class Layouts extends Component {
   componentDidMount() {
-    console.log(ast);
+  }
+  transData(routes) {
+    let arr = []
+    const addData = (routes) => {
+      for (let i = 0; i < routes.length; i++) {
+        if (routes[i].children) {
+          addData(routes[i].children)
+        } else {
+          arr.push(routes[i])
+        }
+      }
+    }
+    addData(routes)
+    return arr
   }
   render() {
-    console.log(browserType());
     return (
       <section className="layout-content">
         {/* 左侧菜单 */}
@@ -31,7 +41,7 @@ class Layouts extends Component {
             {
               <Switch>
                 {
-                  routesConfig.menus.map((item, index) => {
+                  this.transData(routesConfig.menus).map((item, index) => {
                     return <Route path={item.route} component={item.component} key={index}></Route>
                   })
                 }

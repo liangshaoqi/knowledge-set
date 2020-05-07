@@ -12,7 +12,8 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
-    "recast": "^0.18.2"
+    "recast": "^0.18.2",
+    "styled-components": "^5.1.0"
   },
   "scripts": {
     "start": "react-app-rewired start",

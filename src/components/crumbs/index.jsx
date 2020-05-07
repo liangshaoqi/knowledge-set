@@ -1,5 +1,7 @@
 import React from 'react';
+
 import './index.scss'
+
 function Crumbs() {
   return (
     <div className='crumbs-view'>
