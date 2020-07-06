@@ -1,0 +1,37 @@
+.location-container {
+  position: relative;
+  >div {
+    height: 300px;
+  }
+  .one {
+    background-color: rgb(30,144,255);
+  }
+  .two {
+    background-color: rgb(255,192,203);
+    position: relative;
+    .five {
+      background: #ccc;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 10px;
+    }
+    .six {
+      background: turquoise;
+      width: 100px;
+      height: 100px;
+      position: relative;
+      top: 20px;
+      left: 20px;
+    }
+  }
+  .three {
+    background: gold;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+  }
+  .four {
+    background: hotpink;
+  }
+}

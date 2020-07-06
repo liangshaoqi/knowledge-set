@@ -1,47 +1,5 @@
 /* eslint-disable */
-// 防抖
-export function debounce(fn, wait = 1000) {
-  console.log(fn)
-  // 缓存一个定时器id
-  let timer = 0
-  console.log('this:' + this)
-  // 这里返回的函数是每次用户实际调用的防抖函数
-  // 如果定时器设置了,就清空上一次的的定时器
-  // 开始一个新的定时器,延迟执行用户传入的方法
-  return function() {
-    if (timer) clearTimeout(timer)
-    timer = setTimeout(() => {
-      fn.apply(this, arguments)
-      console.log(this)
-    }, wait)
-  }
-}
-// 节流
-let throttle_last = 0
-let throttle_timer = null
-export function throttle(fn, interval = 200) {
-  console.log('周期时间:', interval)
-  return function () {
-    console.log('进入')
-    var th = this;
-    var args = arguments;
-    var now = +new Date();
-    // console.log('throttle_last:', throttle_last)
-    // console.log('now-throttle_last:', now - throttle_last)
-    // console.log('interval:', interval)
-    if (throttle_last && (now - throttle_last) < interval) {
-      console.log('节流')
-      clearTimeout(throttle_timer);
-      throttle_timer = setTimeout(function () {
-        throttle_last = now;
-        fn.apply(th, args);
-      }, interval);
-    } else {
-      throttle_last = now;
-      fn.apply(th, args);
-    }
-  }
-}
+
 export function session_set(name, data) {
   sessionStorage.setItem(name, JSON.stringify(data))
 }
@@ -225,4 +183,14 @@ export function browserType() {
     return 'phone'
   }
   return 'pc'
+}
+// 元素是否进入视口
+export function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
 }

@@ -5,6 +5,10 @@ import StyledComponents from '@view/workbook/styledComponents'
 import UseState from '@view/workbook/useState'
 import Hooks from '@view/workbook/hooks'
 import ClearEffect from '@view/workbook/clearUseEffect'
+
+import Location from '@view/cssStyle/location'
+import Mask from '@view/cssStyle/mask/mask'
+
 export default {
   menus: [ // 菜单相关的路由
     { route: '/app/home', title: '首页', icon: '', component: Home },
@@ -16,6 +20,13 @@ export default {
         { route: '/app/workbook/useState', title: 'useState', icon: '', component: UseState},
         { route: '/app/workbook/Hooks', title: 'Hooks', icon: '', component: Hooks},
         { route: '/app/workbook/ClearEffect', title: 'ClearEffect', icon: '', component: ClearEffect}
+      ]
+    },
+    {
+      route: '/app/css', title: 'CSS', icon: '',
+      children: [
+        { route: '/app/css/location', title: '定位', icon: '', component: Location },
+        { route: '/app/css/mask', title: 'mask-遮罩效果', icon: '', component: Mask }
       ]
     }
   ],
