@@ -1,0 +1,43 @@
+.animation-view {
+  p {
+    padding: 20px;
+  }
+  .loading-view {
+    .loading {
+      padding: 20px;
+      animation: loading 1s infinite steps(12, start);
+    }
+  }
+  .person-run {
+    .person {
+      height: 250px;
+      width: 140px;
+      background: url('../../../assets/work/run1.jpg');
+      background-size: cover;
+      animation: personRun .8s steps(7) infinite;
+    }
+    .person1 {
+      height: 200px;
+      width: 100px;
+      background: url('../../../assets/work/run.png');
+      background-size: 800% 200px;
+      animation: personRun .8s steps(7) infinite;
+    }
+  }
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes personRun {
+    0% {
+      background-position: left;
+    }
+    100% {
+      background-position: right;
+    }
+  }
+}

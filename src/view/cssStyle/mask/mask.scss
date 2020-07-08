@@ -1,4 +1,17 @@
+
 .mask-view {
+  p {
+    margin: 20px 0;
+  }
+  .mask_0 {
+    .mask_bg {
+      width: 800px;
+      height: 500px;
+      background:url('../../../assets/1.jpg');
+      mask-image: url('../../../assets/5.png');
+      mask-size: 50px 50px;
+    }
+  }
   .mask_1 {
     .mask_bg {
       width: 800px;
@@ -86,6 +99,83 @@
       }
     }
   }
+  .mask_7 {
+    filter: contrast(5);
+    .mask_bg {
+      position: relative;
+      width: 800px;
+      height: 500px;
+      background: #fff;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(#000, transparent);
+        background-size: 20px 20px;
+        mask: liner-gradient(-180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, .5));
+      }
+    }
+  }
+  .mask_8 {
+    filter: contrast(5);
+    .mask_bg {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      background: #fff;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(#0044aa, transparent);
+        background-size: 20px 20px;
+        mask: repeating-radial-gradient(circle at 35% 65%, #000, rgba(0, 0, 0, .5), #000 25%);
+        animation: maskMove 2s infinite linear;
+      }
+    }
+  }
+  .mask_9 {
+    .mask_bg {
+      width: 100%;
+      height: 500px;
+      position: relative;
+      .img1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../../../assets/1.jpg') no-repeat left top;
+        // background-size: cover;
+      }
+      .img2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        mask: url('../../../assets/css/xiaoguo.png');
+        mask-size: 3000% 100%;
+        animation: maskMove 2s steps(29) infinite;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background: url('../../../assets/2.jpg') no-repeat left top;
+          // background-size:;
+        }
+      }
+    }
+  }
   @keyframes maskconic {
     @for $i from 0 through 100 {
       #{$i}% {
@@ -122,6 +212,23 @@
           transparent 1%
         );
       }
+    }
+  }
+  @keyframes maskMove  {
+    @for $i from 0 to 100 {
+      #{$i}% {
+        // mask: repeating-radial-gradient(circle at 35% 65%, #000, rgba(0, 0, 0, .5), #000 #{$i + 10 + '%'});
+        mask: repeating-radial-gradient(circle at 35% 65%, #000, rgba(0, 0, 0, .5), #000 #{$i / 3 + 10 + '%'});
+        filter: hue-rotate(#{$i * 3.6 + 'deg'});
+      }
+    }
+  }
+  @keyframes maskMove {
+    from {
+      mask-position: 0 0;
+    }
+    to {
+      mask-position: 100% 0;
     }
   }
 }
