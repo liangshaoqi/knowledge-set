@@ -9,6 +9,7 @@ import ClearEffect from '@view/workbook/clearUseEffect'
 import Location from '@view/cssStyle/location'
 import Mask from '@view/cssStyle/mask/mask'
 
+import Ast from '@view/groundFloor/ast'
 export default {
   menus: [ // 菜单相关的路由
     { route: '/app/home', title: '首页', icon: '', component: Home },
@@ -27,6 +28,12 @@ export default {
       children: [
         { route: '/app/css/location', title: '定位', icon: '', component: Location },
         { route: '/app/css/mask', title: 'mask-遮罩效果', icon: '', component: Mask }
+      ]
+    },
+    {
+      route: '/app/groundFloor', title: '底层原理', icon: '',
+      children: [
+        { route: '/app/groundFloor/ast', title: 'AST(抽象语法树)', icon: '', component: Ast}
       ]
     }
   ],
