@@ -12,13 +12,13 @@ const { Item, SubMenu } = Menu;
 export default function Menus() {
   let [collapsed] = useState(false)
   useEffect(() => {
-    console.log(1111)
+    // console.log(1111)
   })
   useEffect(() => {
-    console.log(2)
+    // console.log(2)
   })
   useEffect(() => {
-    console.log(3)
+    // console.log(3)
   })
   // 渲染菜单项
   const renderMenuItem = (menus) => {

@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react'
 export default function RHook() {
-  const [list, setList] = useState([])
+  const [list] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(_ => {
-    console.log(isLoading)
-    if (isLoading) {
-      setTimeout(_ => {
-        setList([1, 2, 3])
-        setIsLoading(false)
-      }, 2000)
-    }
+    
   }, [isLoading])
   return (
     <div>

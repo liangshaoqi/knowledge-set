@@ -10,6 +10,8 @@ import Location from '@view/cssStyle/location'
 import Mask from '@view/cssStyle/mask/mask'
 
 import Ast from '@view/groundFloor/ast'
+
+import ReduxCom from '@view/redux/redux'
 export default {
   menus: [ // 菜单相关的路由
     { route: '/app/home', title: '首页', icon: '', component: Home },
@@ -35,6 +37,9 @@ export default {
       children: [
         { route: '/app/groundFloor/ast', title: 'AST(抽象语法树)', icon: '', component: Ast}
       ]
+    },
+    {
+      route: '/app/redux', title: 'redux', icon: '', component: ReduxCom
     }
   ],
   other: [ // 非菜单路由
