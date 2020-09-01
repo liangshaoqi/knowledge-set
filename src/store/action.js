@@ -38,3 +38,11 @@ export function setInfoList (data) {
     // })
   }
 }
+export function setNumber (data) {
+  return (dispatch, getState) => {
+    dispatch({
+      type: 'SET_NUMBER',
+      data: data
+    })
+  }
+}

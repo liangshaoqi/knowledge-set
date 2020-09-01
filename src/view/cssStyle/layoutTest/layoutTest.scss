@@ -1,0 +1,60 @@
+.layout-test {
+  .main {
+    background-color: #1890ff;
+    height: 200px;
+  }
+  .left {
+    background-color: rgb(243,109,111);
+    height: 200px;
+  }
+  .right {
+    background-color: rgb(229,161,71);
+    height: 200px;
+  }
+  .test1 {
+    padding-left: 200px; // 预留左侧空间,为.left的宽度
+    padding-right: 300px; // 预留右侧空间,为.right宽度
+    &:after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+      clear: both;
+      visibility: hidden;
+    }
+    >div {
+      height: 200px;
+    }
+    .main {
+      background-color: #1890ff;
+      width: 100%;
+      float: left;
+    }
+    .left {
+      float: left;
+      width: 200px;
+      margin-left: -100%; // 主要
+      position: relative;
+      right: 200px;
+      background-color: rgb(243,109,111);
+    }
+    .right {
+      float: left;
+      width: 300px;
+      margin-right: -300px;
+      background-color: rgb(229,161,71);
+    }
+  }
+  .test2 {
+    display: flex;
+    .main {
+      flex: 1;
+    }
+    .left {
+      flex: 0 0 200px;
+    }
+    .right {
+      flex: 0 0 300px;
+    }
+  }
+}

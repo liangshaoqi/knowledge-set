@@ -26,8 +26,17 @@ function infoList (state = defaultState.infoList, action) {
   }
 }
 
+function number (state = defaultState.number, action) {
+  switch (action.type) {
+    case 'SET_NUMBER':
+      return action.data
+    default:
+      return state
+  }
+}
 // 导出所有reducer
 export default combineReducers({
   pageTitile,
-  infoList
+  infoList,
+  number
 })

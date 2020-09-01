@@ -187,6 +187,7 @@ export function browserType() {
 // 元素是否进入视口
 export function isElementInViewport(el) {
   var rect = el.getBoundingClientRect();
+  console.log(rect)
   return (
     rect.top >= 0 &&
     rect.left >= 0 &&

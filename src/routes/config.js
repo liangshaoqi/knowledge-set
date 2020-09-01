@@ -8,10 +8,17 @@ import ClearEffect from '@view/workbook/clearUseEffect'
 
 import Location from '@view/cssStyle/location'
 import Mask from '@view/cssStyle/mask/mask'
+import LayoutTest from '@view/cssStyle/layoutTest/layoutTest'
 
 import Ast from '@view/groundFloor/ast'
+import ProtptypeCom from '@view/groundFloor/prototype'
 
 import ReduxCom from '@view/redux/redux'
+
+import DecoratorCom from '@view/es/decorator'
+import DefinePropertyCom from '@view/es/defineProperty'
+import ProxyCom from '@view/es/proxy'
+
 export default {
   menus: [ // 菜单相关的路由
     { route: '/app/home', title: '首页', icon: '', component: Home },
@@ -29,17 +36,27 @@ export default {
       route: '/app/css', title: 'CSS', icon: '',
       children: [
         { route: '/app/css/location', title: '定位', icon: '', component: Location },
-        { route: '/app/css/mask', title: 'mask-遮罩效果', icon: '', component: Mask }
+        { route: '/app/css/mask', title: 'mask-遮罩效果', icon: '', component: Mask },
+        { route: '/app/css/layoutTest', title: '布局', icon: '', component: LayoutTest }
       ]
     },
     {
       route: '/app/groundFloor', title: '底层原理', icon: '',
       children: [
-        { route: '/app/groundFloor/ast', title: 'AST(抽象语法树)', icon: '', component: Ast}
+        { route: '/app/groundFloor/ast', title: 'AST(抽象语法树)', icon: '', component: Ast},
+        { route: '/app/groundFloor/protptype', title: '原型链', icon: '', component: ProtptypeCom}
       ]
     },
     {
       route: '/app/redux', title: 'redux', icon: '', component: ReduxCom
+    },
+    {
+      route: '/app/es', title: 'ES新特性', icon: '',
+      children: [
+        { route: '/app/es/decorator', title: '装饰器decorator', icon: '', component: DecoratorCom },
+        { route: '/app/es/defineProperty', title: 'defineProperty', icon: '', component: DefinePropertyCom },
+        { route: '/app/es/proxy', title: 'proxy', icon: '', component: ProxyCom }
+      ]
     }
   ],
   other: [ // 非菜单路由

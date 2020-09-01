@@ -1,6 +1,7 @@
 const path = require('path')
-const { override, fixBabelImports, addLessLoader, addWebpackAlias } = require('customize-cra')
+const { override, fixBabelImports, addLessLoader, addWebpackAlias, addDecoratorsLegacy } = require('customize-cra')
 module.exports = override(
+  addDecoratorsLegacy(),
   // antd按需加载
   fixBabelImports('import', {
     libraryName: 'antd',
@@ -14,6 +15,7 @@ module.exports = override(
   }),
   // 别名配置
   addWebpackAlias({
+    'src': path.resolve(__dirname, 'src/'),
     '@': path.resolve(__dirname, 'src/'),
     '@view': path.resolve(__dirname, 'src/view'),
     '@routes': path.resolve(__dirname, 'src/routes'),

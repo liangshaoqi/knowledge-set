@@ -9,7 +9,7 @@ class HeaderBox extends Component {
   }
   componentDidMount() {
     Promise.race([this.wake(3000), this.wake(2000), this.wake(1000)]).then(result => {
-      console.log(result)
+      // console.log(result)
     }).catch(err => {
       console.log(err)
     })
